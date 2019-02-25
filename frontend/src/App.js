@@ -25,6 +25,7 @@ class App extends Component {
             <>
               <NavBar/>
               <Switch>
+                <Route path='/dashboard' component={UserDashboard} />
                 <Route path="/signup" component={CreateUserForm} />
                 <Route path="/login" component={UserLoginForm} />
                 <Route path="/" component={Home} />

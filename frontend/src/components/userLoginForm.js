@@ -22,7 +22,8 @@ class UserLoginForm extends React.Component {
       .then(res => res.json())
       .then(res => {
         localStorage.token = res.token
-        this.props.dispatch({type: 'LOG_IN', payload: data})
+        this.props.dispatch({type: 'LOG_IN', payload: data.email})
+        this.props.dispatch({type: 'NAV_TO_DASHBOARD'})
       })
       .catch(err => {
         return err

@@ -8,6 +8,9 @@ const navigationReducer = (state = {path: '/'}, action) => {
     case 'NAV_TO_SIGNUP':
       history.push('signup')
       return {...state, path: '/signup'}
+    case 'NAV_TO_DASHBOARD':
+      history.push('dashboard')
+      return {...state, path: '/dashboard'}
     default:
       return state;
   }
