@@ -1,6 +1,6 @@
 import { history } from '../history'
 
-const navigationReducer = (state = {path: '/'}, action) => {
+const navigationReducer = (state = null, action) => {
   switch (action.type) {
     case 'NAV_TO_LOGIN':
       history.push('login')
@@ -11,6 +11,9 @@ const navigationReducer = (state = {path: '/'}, action) => {
     case 'NAV_TO_DASHBOARD':
       history.push('dashboard')
       return {...state, path: '/dashboard'}
+    case 'NAV_TO_HOME':
+      history.push('')
+      return {...state, path: '/'}
     default:
       return state;
   }
