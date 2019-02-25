@@ -19,7 +19,7 @@ module.exports = (app) => {
 
   // this test route is behind authentication so you can use this to test if your authorization header is correct on the frontend.
   app.get('/api/test', requireAuth, (req, res) => {
-    res.send({msg: 'this message is behind authentication! Yay!'})
+    res.status(200).send({msg: 'Authenticated'})
   })
 
   app.get('/api/users', UserController.readAll)

@@ -1,49 +1,45 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Router, Route, Switch } from 'react-router-dom';
+import { history } from './history'
+
 import './App.css';
-import NavBar from './components/navbar'
-import CreateUserForm from './components/createUserForm'
-import UserLoginForm from './components/userLoginForm'
+import NavBar from './components/Navbar'
+import CreateUserForm from './components/CreateUserForm'
+import UserLoginForm from './components/UserLoginForm'
+import UserDashboard from './components/UserDashboard'
+import Home from './components/Home'
+
 
 class App extends Component {
 
-  constructor(){
-    super()
-    this.state = {
-      users: []
-    }
+  state = {
+    token: localStorage.getItem('token')
   }
 
-  componentDidMount = () => {
-    fetch('http://localhost:5000/api/users')
-      .then(response => {
-        return response.json();
-      }).then(data => {
-        let users = data.map((user) => {
-          return(
-            <div key={user._id}>
-              <p>First Name: {user.firstName}</p>
-              <p>Last Name: {user.lastName}</p>
-              <p>Email: {user.email}</p>
-              <hr/>
-            </div>
-          )
-        })
-        this.setState({users: users})
-      })
-  }
 
   render() {
     return (
       <div className="App">
-        <NavBar/>
-        <CreateUserForm />
-        <UserLoginForm />
-        <p>All Users:</p>
-        <hr/>
-        {this.state.users}
+          <Router history={history}>
+            <>
+              <NavBar/>
+              <Switch>
+                <Route path="/signup" component={CreateUserForm} />
+                <Route path="/login" component={UserLoginForm} />
+                <Route path="/" component={Home} />
+              </Switch>
+            < />
+          </Router>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser
+  }
+}
+
+export default connect(mapStateToProps)(App)

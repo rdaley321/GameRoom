@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux';
 
 class CreateUserForm extends React.Component {
 
@@ -20,7 +21,10 @@ class CreateUserForm extends React.Component {
       body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(res => localStorage.token = res.token)
+    .then(res => {
+      localStorage.token = res.token
+      this.props.dispatch({type: 'LOG_IN', payload: data.email})
+    })
   }
 
   render () {
@@ -39,4 +43,4 @@ class CreateUserForm extends React.Component {
   }
 }
 
-export default CreateUserForm;
+export default connect()(CreateUserForm)
