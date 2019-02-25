@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Router, Route, Switch } from 'react-router-dom';
 import { history } from './history'
 
-import './App.css';
 import NavBar from './components/Navbar'
 import CreateUserForm from './components/CreateUserForm'
 import UserLoginForm from './components/UserLoginForm'

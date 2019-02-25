@@ -8,7 +8,8 @@ const userSchema = new Schema({
   email: {type: String, unique: true, lowercase: true, required: true},
   password: {type: String, required: true},
   firstName: {type: String, required: true},
-  lastName: {type: String, required: true}
+  lastName: {type: String, required: true},
+  handle: {type: String}
 })
 
 // don't use a fat arrow function; because you need access to `this`

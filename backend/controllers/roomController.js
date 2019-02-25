@@ -5,7 +5,9 @@ exports.room_create = function (req, res, next) {
         {
             title: req.body.title
         }
-    );
+    )
+    room.save()
+    res.send(room)
 };
 
 exports.room_details = function (req, res, next) {

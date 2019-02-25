@@ -13,3 +13,11 @@ exports.readAll = (request, response, next) => {
     }
   })
 }
+
+exports.find_user = (req,res,next) => {
+  User.findOne({email: req.headers.email}, (err, user) => {
+    if (err || user === null) {
+      return res.status(500).send('Cannot find that user')
+    }
+    res.status(200).json(user)
+})}

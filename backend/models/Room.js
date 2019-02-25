@@ -6,4 +6,4 @@ const roomSchema = new Schema({
   players: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Player' } ]
 })
 
-module.exports = mongoose.model('Room', RoomSchema);
+module.exports = mongoose.model('Room', roomSchema);
