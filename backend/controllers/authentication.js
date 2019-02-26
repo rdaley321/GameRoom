@@ -11,6 +11,7 @@ const tokenForUser = (user) => {
 // signin should take the user from the body of the request, pass that into tokenForUser, which is the function we created above, and then send that token to the frontend.
 exports.signin = (req, res, next) => {
   const token = tokenForUser(req.user)
+  console.log(token)
   res.json({token: token})
 }
 

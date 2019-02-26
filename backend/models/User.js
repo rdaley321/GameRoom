@@ -9,6 +9,7 @@ const userSchema = new Schema({
   password: {type: String, required: true},
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
+  rooms: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Room' } ],
   handle: {type: String}
 })
 
@@ -16,18 +17,21 @@ const userSchema = new Schema({
 // this function hashes the password right before running .save(), which is a mongoose thing
 userSchema.pre('save', function(next) {
   const user = this;
-  bcrypt.genSalt(10, function(err, salt) {
-    if (err) {
-      return next(err)
-    }
-    bcrypt.hash(user.password, salt, null, function(err, hash) {
+  if(user.password.split('')[0] !== '$') {
+    bcrypt.genSalt(10, function(err, salt) {
       if (err) {
         return next(err)
       }
-      user.password = hash
-      next()
+      bcrypt.hash(user.password, salt, null, function(err, hash) {
+        if (err) {
+          return next(err)
+        }
+        user.password = hash
+        next()
+      })
     })
-  })
+  }
+  next()
 })
 
 // don't use a fat arrow function; because you need access to `this`

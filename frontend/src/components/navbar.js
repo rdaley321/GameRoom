@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 class NavBar extends React.Component {
   render() {
-    console.log(this.props.user)
     return (
       <div>
         <h1>GameRoom NavBar</h1>

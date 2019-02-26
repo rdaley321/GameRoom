@@ -21,3 +21,13 @@ exports.find_user = (req,res,next) => {
     }
     res.status(200).json(user)
 })}
+
+exports.getRooms = (req,res,next) => {
+  User
+    .findOne({email: req.headers.email})
+    .populate('rooms')
+    .exec((err, user) => {
+          if (err) return next(err)
+          res.status(200).send(user);
+    })
+}

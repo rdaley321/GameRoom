@@ -25,6 +25,7 @@ module.exports = (app) => {
 
   app.post('/api/rooms', requireAuth, RoomController.room_create)
 
+  app.get('/api/users/rooms', requireAuth, UserController.getRooms)
   app.get('/api/users', UserController.readAll)
   app.get('/api/finduser', UserController.find_user)
 }

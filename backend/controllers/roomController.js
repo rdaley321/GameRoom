@@ -1,4 +1,5 @@
 const Room = require('../models/Room');
+const User = require('../models/User')
 
 exports.room_create = function (req, res, next) {
     let room = new Room(
@@ -6,8 +7,15 @@ exports.room_create = function (req, res, next) {
             title: req.body.title
         }
     )
-    room.save()
-    res.send(room)
+    User.findOne({email: req.headers.email}, (err, user) => {
+      if(err) {
+        return res.status(400).send('Cannot Create Room')
+      }
+      user.rooms.push(room.id)
+      user.save()
+      room.save()
+      res.status(200).send(room)
+    })
 };
 
 exports.room_details = function (req, res, next) {
