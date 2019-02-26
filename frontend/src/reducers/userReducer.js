@@ -5,7 +5,7 @@ const userReducer = (state = {}, action) => {
     case 'LOG_OUT':
       return {...state, currentUser: null}
     case 'FETCH_ROOMS':
-      return {...state, rooms: action.payload} 
+      return {...state, rooms: action.payload}
     default:
       return state;
   }

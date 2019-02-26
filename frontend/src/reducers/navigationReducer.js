@@ -14,6 +14,9 @@ const navigationReducer = (state = null, action) => {
     case 'NAV_TO_HOME':
       history.push('')
       return {...state, path: '/'}
+    case 'NAV_TO_ROOM':
+      history.push(`room/${action.payload}`)
+      return {...state, path: `/room/${action.payload}`}
     default:
       return state;
   }

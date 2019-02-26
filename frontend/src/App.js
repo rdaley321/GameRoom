@@ -8,15 +8,10 @@ import CreateUserForm from './components/CreateUserForm'
 import UserLoginForm from './components/UserLoginForm'
 import UserDashboard from './components/UserDashboard'
 import Home from './components/Home'
+import Room from './components/Room'
 
 
 class App extends Component {
-
-  state = {
-    token: localStorage.getItem('token')
-  }
-
-
   render() {
     return (
       <div className="App">
@@ -24,6 +19,7 @@ class App extends Component {
             <>
               <NavBar/>
               <Switch>
+                <Route path='/room' component={Room} />
                 <Route path='/dashboard' component={UserDashboard} />
                 <Route path="/signup" component={CreateUserForm} />
                 <Route path="/login" component={UserLoginForm} />

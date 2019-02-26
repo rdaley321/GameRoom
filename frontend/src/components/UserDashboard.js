@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import PlayerCard from './PlayerCard'
+import RoomCard from './RoomCard'
 
 class UserDashboard extends React.Component {
 
-  componentDidMount() {
+  fetchRooms() {
     fetch('http://localhost:5000/api/users/rooms', {
       headers: {
         'Content-Type': 'application/json',
@@ -16,11 +16,15 @@ class UserDashboard extends React.Component {
       .then(res => {
         this.props.dispatch({type:'FETCH_ROOMS', payload: res.rooms})
       })
-      .catch(console.log)
+      .catch(err => console.log('Please Login Again'))
+  }
+
+  componentDidMount() {
+    this.fetchRooms()
   }
 
 
-  handlesubmit = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault()
     fetch('http://localhost:5000/api/rooms', {
       method: 'POST',
@@ -31,6 +35,11 @@ class UserDashboard extends React.Component {
       },
       body: JSON.stringify({title: e.target.title.value})
     })
+    .then(res => this.fetchRooms())
+  }
+
+  handleClick = (room) => {
+    this.props.dispatch({type: 'NAV_TO_ROOM', payload: room._id})
   }
 
 
@@ -38,14 +47,18 @@ class UserDashboard extends React.Component {
     return (
       <div>
         <h1>Welcome {this.props.currentUser}</h1>
-        <form onSubmit={e => this.handlesubmit(e)}>
+        <form onSubmit={e => this.handleSubmit(e)}>
           <label>Create a Room</label>
           <input type="string" name="title" placeholder="Title..."></input>
           <button type="submit">Create Room</button>
         </form>
         <ul>
           {this.props.rooms && this.props.rooms.map(room => {
-            return <PlayerCard key="{room.id}" {...room}/>
+            return (
+              <li onClick={e => this.handleClick(room)} key={room._id}>
+                <RoomCard {...room}/>
+              </li>
+            )
           })}
         </ul>
       </div>

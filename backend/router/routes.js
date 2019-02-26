@@ -23,6 +23,7 @@ module.exports = (app) => {
     res.status(200).send({msg: 'Authenticated'})
   })
 
+  app.get('/api/rooms/:id', RoomController.room_details)
   app.post('/api/rooms', requireAuth, RoomController.room_create)
 
   app.get('/api/users/rooms', requireAuth, UserController.getRooms)

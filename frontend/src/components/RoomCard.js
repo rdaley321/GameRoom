@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PlayerCard = (props) => {
+const RoomCard = (props) => {
   return (
     <div>
       {props.title}
@@ -8,4 +8,4 @@ const PlayerCard = (props) => {
   )
 }
 
-export default PlayerCard
+export default RoomCard

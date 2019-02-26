@@ -20,7 +20,7 @@ exports.room_create = function (req, res, next) {
 
 exports.room_details = function (req, res, next) {
     Room.findById(req.params.id, function (err, room) {
-        if (err) return next(err);
+        if (err) return res.status(400).send('Cannot Get Room Details');
         res.send(room);
     })
 };
