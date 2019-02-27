@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import AddPlayerToRoomForm from './AddPlayerToRoomForm'
 import PlayerCard from './PlayerCard'
+import ChartComponent from './ChartComponent'
 
 class Room extends React.Component {
 
@@ -16,11 +17,21 @@ class Room extends React.Component {
   render () {
     const title = this.props.currentRoom && <h1>Room: {this.props.currentRoom.title}</h1>
     const players = this.props.currentRoom && this.props.currentRoom.players.map(player => <PlayerCard key={player._id} {...player}/>)
+    const labels = this.props.currentRoom && this.props.currentRoom.players.map(player => player.handle)
+    const playersKD = this.props.currentRoom && this.props.currentRoom.players.map(player => player.stats.lifeTimeStats.find(stat => stat['key'] === 'K/d').value)
+    const data = {
+    	labels: labels,
+    	datasets: [{
+    		data: playersKD
+    	}]
+    };
+
 
     return(
       <div>
         {title}
         <AddPlayerToRoomForm />
+        <ChartComponent data={data}/>
         {players}
       </div>
     )
