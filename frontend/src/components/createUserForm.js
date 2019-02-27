@@ -24,6 +24,7 @@ class CreateUserForm extends React.Component {
     .then(res => {
       localStorage.token = res.token
       this.props.dispatch({type: 'LOG_IN', payload: data.email})
+      this.props.dispatch({type: 'NAV_TO_DASHBOARD'})
     })
   }
 

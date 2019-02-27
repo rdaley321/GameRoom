@@ -9,6 +9,7 @@ import UserLoginForm from './components/UserLoginForm'
 import UserDashboard from './components/UserDashboard'
 import Home from './components/Home'
 import Room from './components/Room'
+import PrivateRoute from './components/PrivateRoute'
 
 
 class App extends Component {
@@ -19,8 +20,8 @@ class App extends Component {
             <>
               <NavBar/>
               <Switch>
-                <Route path='/room' component={Room} />
-                <Route path='/dashboard' component={UserDashboard} />
+                <PrivateRoute path="/room"><Room /></PrivateRoute>
+                <PrivateRoute path="/dashboard"><UserDashboard /></PrivateRoute>
                 <Route path="/signup" component={CreateUserForm} />
                 <Route path="/login" component={UserLoginForm} />
                 <Route path="/" component={Home} />
