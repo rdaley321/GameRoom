@@ -19,10 +19,15 @@ exports.room_create = function (req, res, next) {
 };
 
 exports.room_details = function (req, res, next) {
-    Room.findById(req.params.id, function (err, room) {
-        if (err) return res.status(400).send('Cannot Get Room Details');
-        res.send(room);
-    })
+    Room
+      .findById(req.params.id)
+      .populate('players')
+      .exec((err, room) => {
+        if(err) {
+          return res.status(400).send('Cannot Get Room Details')
+        }
+        res.status(200).send(room)
+      })
 };
 
 exports.room_update = function (req, res, next) {

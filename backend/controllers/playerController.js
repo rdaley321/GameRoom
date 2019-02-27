@@ -10,7 +10,7 @@ exports.player_create = function (req, res, next) {
         }
     );
 
-    Room.findById(req.params.id, (err, room) => {
+    Room.findById(req.headers.room_id, (err, room) => {
         if(err) return res.status(400).send('Cannot Update Room with this Player.')
         room.players.push(player)
         room.save()

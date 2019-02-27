@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import AddPlayerToRoomForm from './AddPlayerToRoomForm'
+import PlayerCard from './PlayerCard'
 
 class Room extends React.Component {
+
 
   componentDidMount() {
     fetch(`http://localhost:5000/api/rooms/${this.props.room_id}`)
@@ -12,9 +14,14 @@ class Room extends React.Component {
   }
 
   render () {
+    const title = this.props.currentRoom && <h1>Room: {this.props.currentRoom.title}</h1>
+    const players = this.props.currentRoom && this.props.currentRoom.players.map(player => <PlayerCard key={player._id} {...player}/>)
+
     return(
       <div>
+        {title}
         <AddPlayerToRoomForm />
+        {players}
       </div>
     )
   }

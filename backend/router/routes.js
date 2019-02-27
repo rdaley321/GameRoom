@@ -1,5 +1,6 @@
 const UserController = require('../controllers/userController');
 const RoomController = require('../controllers/roomController')
+const PlayerController = require('../controllers/playerController')
 const Authentication = require('../controllers/authentication')
 
 // passport is middleware in order to check tokens in the header of incoming requests
@@ -22,6 +23,8 @@ module.exports = (app) => {
   app.get('/api/test', requireAuth, (req, res) => {
     res.status(200).send({msg: 'Authenticated'})
   })
+
+  app.post('/api/players', PlayerController.player_create)
 
   app.get('/api/rooms/:id', RoomController.room_details)
   app.post('/api/rooms', requireAuth, RoomController.room_create)
