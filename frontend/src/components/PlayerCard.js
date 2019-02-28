@@ -1,7 +1,6 @@
 import React from 'react'
 
 const PlayerCard = (props) => {
-  console.log(props)
   let wins
   let winPercentage
   let kills
