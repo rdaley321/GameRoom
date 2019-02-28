@@ -19,7 +19,7 @@ class Room extends React.Component {
     const title = this.props.currentRoom && <h1>Room: {this.props.currentRoom.title}</h1>
     const players = this.props.currentRoom && this.props.currentRoom.players.map(player => <PlayerCard key={player._id} {...player}/>)
     const labels = this.props.currentRoom && this.props.currentRoom.players.map(player => player.handle)
-    const playersKD = this.props.currentRoom && this.props.currentRoom.players.map(player => player.stats.lifeTimeStats.find(stat => stat['key'] === 'K/d').value)
+    const playersKD = this.props.currentRoom && this.props.currentRoom.players.map(player => player.stats.lifeTimeStats.find(stat => stat.key === 'K/d').value)
     const colors = labels && randomColor({count: labels.length})
 
     const  data = {

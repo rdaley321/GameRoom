@@ -9,21 +9,21 @@ const PlayerCard = (props) => {
   let matchesPlayed
 
   props.stats.lifeTimeStats.forEach(stat => {
-    switch(stat['key']) {
+    switch(stat.key) {
       case 'Wins':
-        wins = stat['value']
+        wins = stat.value
       break
       case 'Win%':
-        winPercentage = stat['value']
+        winPercentage = stat.value
       break
       case 'Kills':
-        kills = stat['value']
+        kills = stat.value
       break
       case 'K/d':
-        kdRatio = stat['value']
+        kdRatio = stat.value
       break
       case 'Matches Played':
-        matchesPlayed = stat['value']
+        matchesPlayed = stat.value
       break
       default:
     }
