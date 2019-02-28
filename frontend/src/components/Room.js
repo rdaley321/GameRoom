@@ -55,8 +55,7 @@ class Room extends React.Component {
           backgroundColor: colors
       	}]
       };
-
-
+      
     return(
       <div>
         {title}

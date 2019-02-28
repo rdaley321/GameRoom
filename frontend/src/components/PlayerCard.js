@@ -1,4 +1,5 @@
 import React from 'react'
+import LineChartComponent from './LineChartComponent'
 
 const PlayerCard = (props) => {
   let wins
@@ -40,6 +41,9 @@ const PlayerCard = (props) => {
         <p>Kills: {kills}</p>
         <p>K/D: {kdRatio}</p>
         <p>Matches Played: {matchesPlayed}</p>
+      </div>
+      <div>
+        {props.stats.recentMatches.length > 1 && <LineChartComponent data={props.stats.recentMatches}/> }
       </div>
     </div>
   )
