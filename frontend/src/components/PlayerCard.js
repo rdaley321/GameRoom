@@ -1,5 +1,6 @@
 import React from 'react'
 import LineChartComponent from './LineChartComponent'
+import circleArrow from '../images/loading-refresh-reload-loop-circle-arrow-38191.png'
 
 const PlayerCard = (props) => {
   let wins
@@ -29,8 +30,16 @@ const PlayerCard = (props) => {
     }
   })
 
+  function handleClick(e) {
+    console.log('PROPS', props)
+    console.log('EVENT TARGET', e.target)
+  }
+
   return (
     <div>
+      <div className="refresh-icon-div" onClick={e => handleClick(e)}>
+        <img src={circleArrow} alt='circle arrow'/>
+      </div>
       <h1>{props.handle}</h1>
       <h6>{props.nickname}</h6>
       <h6>{props.stats.platformNameLong}</h6>
