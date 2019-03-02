@@ -38,6 +38,14 @@ exports.player_update = function (req, res, next) {
 };
 
 exports.player_delete = function (req, res, next) {
+    Player.findById(req.params.id, function (err, player) {
+        if(err) return res.status(400).send('Cannot delete Player from this room.')
+      Room.findById(req.headers.room_id, (err, room) => {
+          if(err) return res.status(400).send('Cannot delete Player from this room.')
+          room.players.pull(player)
+          room.save()
+      });
+    })
     Player.findByIdAndRemove(req.params.id, function (err) {
         if (err) return next(err);
         res.send('Deleted successfully!');

@@ -4,6 +4,7 @@ import circleArrow from '../images/loading-refresh-reload-loop-circle-arrow-3819
 import xIcon from '../images/x_icon.png'
 import apiKey from '../secret/keys'
 import { connect } from 'react-redux'
+
 const PlayerCard = (props) => {
   let wins
   let winPercentage
@@ -65,7 +66,8 @@ const PlayerCard = (props) => {
     fetch(`http://localhost:5000/api/players/${props._id}`, {
       method: 'DELETE',
       headers: {
-        'authorization': localStorage.token
+        'authorization': localStorage.token,
+        'room_id': props.currentRoomID
       }
     })
     .then(props.dispatch({type: 'DELETE_PLAYER_FROM_ROOM', payload: props._id}))
@@ -97,4 +99,10 @@ const PlayerCard = (props) => {
   )
 }
 
-export default connect()(PlayerCard)
+const mapStateToProps = state => {
+  return {
+    currentRoomID: state.room.room_details._id
+  }
+}
+
+export default connect(mapStateToProps)(PlayerCard)
