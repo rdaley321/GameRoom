@@ -1,7 +1,8 @@
 import React from 'react'
 import LineChartComponent from './LineChartComponent'
 import circleArrow from '../images/loading-refresh-reload-loop-circle-arrow-38191.png'
-
+import apiKey from '../secret/keys'
+import { connect } from 'react-redux'
 const PlayerCard = (props) => {
   let wins
   let winPercentage
@@ -30,14 +31,40 @@ const PlayerCard = (props) => {
     }
   })
 
-  function handleClick(e) {
+  function postToDatabase(stats) {
     console.log('PROPS', props)
-    console.log('EVENT TARGET', e.target)
+    console.log('UPDATED STATS', stats)
+    fetch(`http://localhost:5000/api/players/update/${props._id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': localStorage.token
+      },
+      body: JSON.stringify({stats: stats})
+    })
+    .then(props.dispatch({type: 'UPDATE_PLAYER_IN_ROOM', payload: {stats: stats, id: props._id}}))
+  }
+
+  function handleClick() {
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.fortnitetracker.com/v1/profile/${props.stats.platformName}/${props.stats.epicUserHandle}`, {
+      headers: {
+        "TRN-Api-Key": apiKey
+      }
+    })
+    .then(res => res.json())
+    .then(res => {
+      if(res.error){
+        console.log('Cannot Update Player')
+      } else {
+        console.log('REFRESHING STATS AND SAVING TO DATABASE')
+        postToDatabase(res)
+      }
+    })
   }
 
   return (
     <div>
-      <div className="refresh-icon-div" onClick={e => handleClick(e)}>
+      <div className="refresh-icon-div" onClick={handleClick}>
         <img src={circleArrow} alt='circle arrow'/>
       </div>
       <h1>{props.handle}</h1>
@@ -58,4 +85,4 @@ const PlayerCard = (props) => {
   )
 }
 
-export default PlayerCard
+export default connect()(PlayerCard)

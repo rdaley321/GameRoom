@@ -24,7 +24,9 @@ module.exports = (app) => {
     res.status(200).send({msg: 'Authenticated'})
   })
 
+  app.patch('/api/players/update/:id', PlayerController.player_update)
   app.post('/api/players', PlayerController.player_create)
+
 
   app.get('/api/rooms/:id', RoomController.room_details)
   app.post('/api/rooms', requireAuth, RoomController.room_create)
