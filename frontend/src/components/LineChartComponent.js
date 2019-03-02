@@ -2,14 +2,10 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 const LineChartComponent = (props) => {
-
-
   let arr = []
   for (let i = 1; i < props.data.length + 1; i++) {
     arr.push(`Game ${i}`)
   }
-
-  console.log(props.data.map(obj => obj.kills))
 
   const data = {
     labels: arr,
