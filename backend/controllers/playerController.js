@@ -18,7 +18,7 @@ exports.player_create = function (req, res, next) {
             if (err) {
                 return next(err);
             }
-            res.send('Player Created successfully')
+            res.send(player)
         })
     });
 };

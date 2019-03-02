@@ -1,6 +1,7 @@
 import React from 'react'
 import LineChartComponent from './LineChartComponent'
 import circleArrow from '../images/loading-refresh-reload-loop-circle-arrow-38191.png'
+import xIcon from '../images/x_icon.png'
 import apiKey from '../secret/keys'
 import { connect } from 'react-redux'
 const PlayerCard = (props) => {
@@ -32,8 +33,6 @@ const PlayerCard = (props) => {
   })
 
   function postToDatabase(stats) {
-    console.log('PROPS', props)
-    console.log('UPDATED STATS', stats)
     fetch(`http://localhost:5000/api/players/update/${props._id}`, {
       method: 'PATCH',
       headers: {
@@ -45,7 +44,7 @@ const PlayerCard = (props) => {
     .then(props.dispatch({type: 'UPDATE_PLAYER_IN_ROOM', payload: {stats: stats, id: props._id}}))
   }
 
-  function handleClick() {
+  function handleRefresh() {
     fetch(`https://cors-anywhere.herokuapp.com/https://api.fortnitetracker.com/v1/profile/${props.stats.platformName}/${props.stats.epicUserHandle}`, {
       headers: {
         "TRN-Api-Key": apiKey
@@ -62,10 +61,23 @@ const PlayerCard = (props) => {
     })
   }
 
+  function handleDelete() {
+    fetch(`http://localhost:5000/api/players/${props._id}`, {
+      method: 'DELETE',
+      headers: {
+        'authorization': localStorage.token
+      }
+    })
+    .then(props.dispatch({type: 'DELETE_PLAYER_FROM_ROOM', payload: props._id}))
+  }
+
   return (
     <div>
-      <div className="refresh-icon-div" onClick={handleClick}>
-        <img src={circleArrow} alt='circle arrow'/>
+      <div className="refresh-icon-div" onClick={handleRefresh}>
+        <img src={circleArrow} alt='refresh'/>
+      </div>
+      <div className="delete-icon-div" onClick={handleDelete}>
+        <img src={xIcon} alt='delete'/>
       </div>
       <h1>{props.handle}</h1>
       <h6>{props.nickname}</h6>

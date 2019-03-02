@@ -26,7 +26,7 @@ module.exports = (app) => {
 
   app.patch('/api/players/update/:id', PlayerController.player_update)
   app.post('/api/players', PlayerController.player_create)
-
+  app.delete('/api/players/:id', PlayerController.player_delete)
 
   app.get('/api/rooms/:id', RoomController.room_details)
   app.post('/api/rooms', requireAuth, RoomController.room_create)

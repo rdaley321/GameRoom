@@ -19,7 +19,8 @@ class AddPlayerToRoomForm extends React.Component {
       },
       body: JSON.stringify(data)
     })
-    .then(this.props.dispatch({type: 'ADD_PLAYER_TO_ROOM', payload: data}))
+    .then(res => res.json())
+    .then(res => this.props.dispatch({type: 'ADD_PLAYER_TO_ROOM', payload: res}))
   }
 
   handleSubmit = (e) => {

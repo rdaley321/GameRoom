@@ -7,12 +7,14 @@ const roomReducer = (state = {}, action) => {
     case 'UPDATE_PLAYER_IN_ROOM':
       const arr = state.room_details.players.map(player => {
         if(player._id === action.payload.id) {
-          player = {...player, stats: action.payload.stats}
+          return {...player, stats: action.payload.stats}
         }
         return player
       })
-      
       return {...state, room_details: {...state.room_details, players: arr}}
+    case 'DELETE_PLAYER_FROM_ROOM':
+      const deleteArr = state.room_details.players.filter(player => player._id !== action.payload)
+      return {...state, room_details: {...state.room_details, players: deleteArr}}
     default:
       return state;
   }
