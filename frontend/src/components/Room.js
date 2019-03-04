@@ -9,7 +9,7 @@ class Room extends React.Component {
 
 
   componentDidMount() {
-    fetch(`http://localhost:5000/api/rooms/${this.props.room_id}`)
+    fetch(`http://localhost:8080/api/rooms/${this.props.room_id}`)
     .then(res => res.json())
     .then(res => this.props.dispatch({type:'SELECT_CURRENT_ROOM', payload: res}))
     .catch(err => console.log(err))
@@ -55,7 +55,7 @@ class Room extends React.Component {
           backgroundColor: colors
       	}]
       };
-      
+
     return(
       <div>
         {title}

@@ -34,7 +34,7 @@ const PlayerCard = (props) => {
   })
 
   function postToDatabase(stats) {
-    fetch(`http://localhost:5000/api/players/update/${props._id}`, {
+    fetch(`http://localhost:8080/api/players/update/${props._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const PlayerCard = (props) => {
   }
 
   function handleDelete() {
-    fetch(`http://localhost:5000/api/players/${props._id}`, {
+    fetch(`http://localhost:8080/api/players/${props._id}`, {
       method: 'DELETE',
       headers: {
         'authorization': localStorage.token,

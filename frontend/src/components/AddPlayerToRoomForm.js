@@ -10,7 +10,7 @@ class AddPlayerToRoomForm extends React.Component {
       nickname: e.target.nickname.value,
       stats: stats
     }
-    fetch('http://localhost:5000/api/players', {
+    fetch('http://localhost:8080/api/players', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

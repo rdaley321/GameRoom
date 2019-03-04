@@ -13,7 +13,7 @@ class CreateUserForm extends React.Component {
       lastName: e.target.lastName.value
     }
 
-    fetch('http://localhost:5000/api/user/signup', {
+    fetch('http://localhost:8080/api/user/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
