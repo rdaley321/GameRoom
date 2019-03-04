@@ -10,6 +10,7 @@ import UserDashboard from './components/UserDashboard'
 import Home from './components/Home'
 import Room from './components/Room'
 import PrivateRoute from './components/PrivateRoute'
+import Chat from './components/Chat'
 
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
                 <Route path="/login" component={UserLoginForm} />
                 <Route path="/" component={Home} />
               </Switch>
+              {this.props.currentUser && <Chat />}
             < />
           </Router>
       </div>
@@ -33,9 +35,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.user.currentUser
   }
 }
 

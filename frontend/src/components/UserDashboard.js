@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import RoomCard from './RoomCard'
-import Chat from './Chat'
 
 class UserDashboard extends React.Component {
 
@@ -62,7 +61,6 @@ class UserDashboard extends React.Component {
             )
           })}
         </ul>
-        <Chat />
       </div>
     )
   }
