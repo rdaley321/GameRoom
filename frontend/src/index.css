@@ -4,6 +4,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
 
 .pointer {
@@ -16,6 +18,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  min-width: 100%;
+  top: 0;
 }
 
 .navbar h1 {
@@ -44,24 +49,149 @@ body {
   transition-duration: 0.4s;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  width: 400px;
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 10px;
+  font-size: 1em;
+  border-radius: 10px;
+  border-style: none;
+  padding: 10px;
+}
+
+.form button {
+  width: 80px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid white;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.form-bg {
+  background:rgba(56,255,255,.9);
+  width: 600px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  border-radius: 50px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-top: 200px;
+}
+.room-form-bg {
+  background:rgba(56,255,255,.9);
+  width: 600px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  border-radius: 50px;
+}
+
 .navbar button:hover {
   background-color: blue;
   color: white;
 }
 
+.home {
+  margin-top: 150px;
+}
+
 .home h1 {
   text-align: center;
-  color: white;
+  color: black;
   flex-basis: 85%;
   font-family: 'Luckiest Guy', cursive;
   padding: 5px;
   font-size: 2.5em;
 }
 
+.title {
+  text-align: center;
+  color: green;
+  font-family: 'Luckiest Guy', cursive;
+  padding: 5px;
+  font-size: 2.5em;
+  padding-top: 50px;
+}
+
 #sky {
   background-image: url('./images/fortnite-background-120.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.llama-bg {
+  background: url('./images/fortnite-bg-img.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.mountain-bg {
+  background: url('./images/fortnite-mountain-bg.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.werewolf-bg {
+  background: url('./images/fortnite-dire-werewolf.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.llama-bg h2 {
+  margin-top: 0;
+}
+
+.dashboard-div {
+  position: absolute;
+  display: flex;
+  margin-top: 150px;
+  width: 100%
+}
+
+.room-card-div {
+  background-color: black;
+  border-radius: 50px;
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+  margin-left: 100px;
+  margin-right: 50px;
+}
+
+.room-card {
+  border: 2px solid gold;
+  padding: 25px;
+  margin: 10px;
 }
 
 .refresh-icon-div img{

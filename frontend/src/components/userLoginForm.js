@@ -32,13 +32,15 @@ class UserLoginForm extends React.Component {
 
   render () {
     return (
-      <div>
-        <h2>Please Login</h2>
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <input type="text" name="email" placeholder="Email"/>
-          <input type="password" name="password" placeholder="Password"/>
-          <button type="submit" name="button">Log In</button>
-        </form>
+      <div className="llama-bg">
+        <div className="form-bg">
+          <h2 className="title">Login</h2>
+          <form className="form" onSubmit={e => this.handleSubmit(e)}>
+            <input type="text" name="email" placeholder="Email"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <button type="submit" name="button">Log In</button>
+          </form>
+        </div>
       </div>
     )
   }

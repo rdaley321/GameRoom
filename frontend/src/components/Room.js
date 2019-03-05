@@ -57,7 +57,7 @@ class Room extends React.Component {
       };
 
     return(
-      <div>
+      <div className="werewolf-bg">
         {title}
         <AddPlayerToRoomForm />
         <form>

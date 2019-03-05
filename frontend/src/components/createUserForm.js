@@ -22,23 +22,29 @@ class CreateUserForm extends React.Component {
     })
     .then(res => res.json())
     .then(res => {
+      if(!res.error) {
       localStorage.token = res.token
       this.props.dispatch({type: 'LOG_IN', payload: data.email})
       this.props.dispatch({type: 'NAV_TO_DASHBOARD'})
+      }
     })
   }
 
   render () {
     return (
-      <div>
-        <h2>Please Create An Account</h2>
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <input type="text" name="email" placeholder="Email"/>
-          <input type="password" name="password" placeholder="Password"/>
-          <input type="text" name="firstName" placeholder="First Name"/>
-          <input type="text" name="lastName" placeholder="Last Name"/>
-          <button type="submit" name="button">Create</button>
-        </form>
+      <div className="llama-bg">
+        <div>
+          <div className="form-bg">
+            <h2 className="title">Create An Account</h2>
+            <form className="form" onSubmit={e => this.handleSubmit(e)}>
+              <input type="text" name="email" placeholder="Email"/>
+              <input type="password" name="password" placeholder="Password"/>
+              <input type="text" name="firstName" placeholder="First Name"/>
+              <input type="text" name="lastName" placeholder="Last Name"/>
+              <button type="submit" name="button">Create</button>
+            </form>
+          </div>
+        </div>
       </div>
     )
   }

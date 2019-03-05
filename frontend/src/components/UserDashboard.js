@@ -45,22 +45,25 @@ class UserDashboard extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>Welcome {this.props.currentUser}</h1>
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <label>Create a Room</label>
-          <input type="string" name="title" placeholder="Title..."></input>
-          <button type="submit">Create Room</button>
-        </form>
-        <ul>
-          {this.props.rooms && this.props.rooms.map(room => {
-            return (
-              <li onClick={e => this.handleClick(room)} key={room._id}>
-                <RoomCard {...room}/>
-              </li>
-            )
-          })}
-        </ul>
+      <div className="mountain-bg">
+        <div className="dashboard-div">
+          <div className="room-form-bg">
+            <form className="form" onSubmit={e => this.handleSubmit(e)}>
+              <label className="title">Create a Room</label>
+              <input type="string" name="title" placeholder="Title..."></input>
+              <button type="submit">Create Room</button>
+            </form>
+          </div>
+          <div className="title room-card-div">
+            {this.props.rooms && this.props.rooms.map(room => {
+              return (
+                <div onClick={e => this.handleClick(room)} key={room._id}>
+                  <RoomCard {...room}/>
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </div>
     )
   }
