@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 class NavBar extends React.Component {
   render() {
     return (
-      <div>
-        <h1>GameRoom NavBar</h1>
+      <div className="navbar">
+        <h1>GAMEROOM</h1>
           {this.props.user === null ?
             <>
               <button onClick={() => this.props.dispatch({type: 'NAV_TO_LOGIN'})}>Log In</button>

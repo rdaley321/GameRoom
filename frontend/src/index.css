@@ -1,7 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.navbar {
+  color: white;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar h1 {
+  flex-basis: 85%;
+  font-family: 'Luckiest Guy', cursive;
+  padding: 5px;
+  font-size: 2.5em;
+}
+
+.navbar button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid white;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.navbar button:hover {
+  background-color: blue;
+  color: white;
+}
+
+.home h1 {
+  text-align: center;
+  color: white;
+  flex-basis: 85%;
+  font-family: 'Luckiest Guy', cursive;
+  padding: 5px;
+  font-size: 2.5em;
+}
+
+#sky {
+  background-image: url('./images/fortnite-background-120.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .refresh-icon-div img{
