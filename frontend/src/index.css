@@ -16,7 +16,7 @@ body {
   color: white;
   background-color: black;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   min-width: 100%;
@@ -27,10 +27,7 @@ body {
   font-family: 'Luckiest Guy', cursive;
   padding: 5px;
   font-size: 2.5em;
-}
-
-.invis-div {
-  flex-basis: 70%;
+  padding-left: 50px;
 }
 
 .navbar button {

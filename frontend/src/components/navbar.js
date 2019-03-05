@@ -29,9 +29,9 @@ class NavBar extends React.Component {
           :
         this.props.dispatch({type: 'NAV_TO_DASHBOARD'})
         }>GAMEROOM</h1>
-        <div className="invis-div">
-        </div>
+        <div style={{paddingRight: '50px'}}>
           {rightSideNav}
+        </div>
       </div>
     )
   }
