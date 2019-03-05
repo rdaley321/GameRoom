@@ -6,6 +6,10 @@ body {
     box-sizing: border-box;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .navbar {
   color: white;
   background-color: black;
@@ -15,13 +19,17 @@ body {
 }
 
 .navbar h1 {
-  flex-basis: 85%;
   font-family: 'Luckiest Guy', cursive;
   padding: 5px;
   font-size: 2.5em;
 }
 
+.invis-div {
+  flex-basis: 70%;
+}
+
 .navbar button {
+  min-width: 80px;
   background-color: #4CAF50;
   color: white;
   padding: 8px;

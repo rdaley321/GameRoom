@@ -5,14 +5,19 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="navbar">
-        <h1>GAMEROOM</h1>
+        <h1 className='pointer' onClick={() => this.props.user === null ? this.props.dispatch({type: 'NAV_TO_HOME'})
+          :
+        this.props.dispatch({type: 'NAV_TO_DASHBOARD'})
+        }>GAMEROOM</h1>
+      <div className="invis-div">
+      </div>
           {this.props.user === null ?
             <>
-              <button onClick={() => this.props.dispatch({type: 'NAV_TO_LOGIN'})}>Log In</button>
-              <button onClick={() => this.props.dispatch({type: 'NAV_TO_SIGNUP'})}>Sign Up</button>
+              <button className='pointer' onClick={() => this.props.dispatch({type: 'NAV_TO_LOGIN'})}>Log In</button>
+              <button className='pointer' onClick={() => this.props.dispatch({type: 'NAV_TO_SIGNUP'})}>Sign Up</button>
             </>
           :
-              <button onClick={() => {
+              <button className='pointer' onClick={() => {
                   this.props.dispatch({type: 'LOG_OUT'})
                   this.props.dispatch({type: 'NAV_TO_HOME'})
                 }}>Log Out</button>}
