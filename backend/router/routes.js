@@ -2,6 +2,7 @@ const UserController = require('../controllers/userController');
 const RoomController = require('../controllers/roomController')
 const PlayerController = require('../controllers/playerController')
 const Authentication = require('../controllers/authentication')
+const express = require('express')
 
 // passport is middleware in order to check tokens in the header of incoming requests
 const passport = require('../services/passport')
@@ -34,4 +35,5 @@ module.exports = (app) => {
   app.get('/api/users/rooms', requireAuth, UserController.getRooms)
   app.get('/api/users', UserController.readAll)
   app.get('/api/finduser', UserController.find_user)
+  app.use(express.static('public'))
 }
