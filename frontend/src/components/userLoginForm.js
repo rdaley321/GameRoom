@@ -38,7 +38,7 @@ class UserLoginForm extends React.Component {
           <form className="form" onSubmit={e => this.handleSubmit(e)}>
             <input type="text" name="email" placeholder="Email"/>
             <input type="password" name="password" placeholder="Password"/>
-            <button type="submit" name="button">Log In</button>
+            <button className="pointer" type="submit" name="button">Log In</button>
           </form>
         </div>
       </div>

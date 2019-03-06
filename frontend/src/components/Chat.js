@@ -50,7 +50,7 @@ class Chat extends React.Component{
           <div>
               <input type="text" placeholder="Message" value={this.state.message} onChange={e => this.setState({message: e.target.value})}/>
               <br/>
-              <button onClick={this.sendMessage}>Send</button>
+              <button className="pointer" onClick={this.sendMessage}>Send</button>
           </div>
         </div>
         );

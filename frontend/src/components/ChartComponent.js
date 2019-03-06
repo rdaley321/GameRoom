@@ -3,7 +3,7 @@ import {Doughnut} from 'react-chartjs-2';
 
 const ChartComponent = (props) => {
   return(
-    <div style={{width: '600px'}}>
+    <div className="pointer" style={{width: '600px'}}>
       <Doughnut data={props.data}/>
     </div>
   )

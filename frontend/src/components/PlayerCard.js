@@ -76,10 +76,10 @@ const PlayerCard = (props) => {
   return (
     <div className="player-card-div">
       <div className="player-card-buttons">
-        <div className="refresh-icon-div" onClick={handleRefresh}>
+        <div className="refresh-icon-div pointer" onClick={handleRefresh}>
           <img src={circleArrow} alt='refresh'/>
         </div>
-        <div className="delete-icon-div" onClick={handleDelete}>
+        <div className="delete-icon-div pointer" onClick={handleDelete}>
           <img src={xIcon} alt='delete'/>
         </div>
       </div>

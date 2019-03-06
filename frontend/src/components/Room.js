@@ -61,6 +61,7 @@ class Room extends React.Component {
         <div className="room-content-div">
           <div className="title-and-graph-div">
             {title}
+            <AddPlayerToRoomForm />
             <div className="entire-doughnut-chart">
               <form className="radio-button-form">
                   <div>
@@ -112,11 +113,8 @@ class Room extends React.Component {
               <ChartComponent data={data}/>
             </div>
           </div>
-          <div className="form-and-players-div">
-            <AddPlayerToRoomForm />
-            <div className="all-players-div">
-              {players}
-            </div>
+          <div className="all-players-div">
+            {players}
           </div>
         </div>
       </div>

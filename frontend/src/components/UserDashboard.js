@@ -51,7 +51,7 @@ class UserDashboard extends React.Component {
             <form className="form" onSubmit={e => this.handleSubmit(e)}>
               <label className="title">Create a Room</label>
               <input type="string" name="title" placeholder="Title..."></input>
-              <button type="submit">Create Room</button>
+              <button className="pointer" type="submit">Create Room</button>
             </form>
           </div>
           <div className="title room-card-div">

@@ -41,7 +41,7 @@ class CreateUserForm extends React.Component {
               <input type="password" name="password" placeholder="Password"/>
               <input type="text" name="firstName" placeholder="First Name"/>
               <input type="text" name="lastName" placeholder="Last Name"/>
-              <button type="submit" name="button">Create</button>
+              <button type="submit pointer" name="button">Create</button>
             </form>
           </div>
         </div>

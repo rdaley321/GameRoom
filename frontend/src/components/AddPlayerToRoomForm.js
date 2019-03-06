@@ -52,7 +52,7 @@ class AddPlayerToRoomForm extends React.Component {
             <option value="xbl">XBL</option>
             <option value="pc">PC</option>
           </select>
-          <button type="submit">Add player</button>
+          <button className="pointer" type="submit">Add player</button>
         </form>
       </div>
     )
