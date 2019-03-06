@@ -43,7 +43,7 @@ class Room extends React.Component {
       default:
     }
 
-    const title = room && <h1>Room: {room.title}</h1>
+    const title = room && <h1 className="title">Room: {room.title}</h1>
     const players = room && room.players.map(player => <PlayerCard key={player._id} {...player}/>)
     const labels = room && room.players.map(player => player.handle)
     const colors = labels && randomColor({count: labels.length})
@@ -58,49 +58,67 @@ class Room extends React.Component {
 
     return(
       <div className="werewolf-bg">
-        {title}
-        <AddPlayerToRoomForm />
-        <form>
-          <fieldset>
-              <label htmlFor="wins">Wins</label>
-              <input
-                onChange={e => this.handleChange(e)}
-                type="radio"
-                name="sortBy"
-                value="wins"
-                checked={this.props.currentButton === "wins"} />
-              <label htmlFor="winPercentage">Win Percentage</label>
-              <input
-                onChange={e => this.handleChange(e)}
-                type="radio"
-                name="sortBy"
-                value="winPercentage"
-                checked={this.props.currentButton === "winPercentage"} />
-              <label htmlFor="kills">Kills</label>
-              <input
-                onChange={e => this.handleChange(e)}
-                type="radio"
-                name="sortBy"
-                value="kills"
-                checked={this.props.currentButton === "kills"} />
-              <label htmlFor="kd">K/D Ratio</label>
-              <input
-                onChange={e => this.handleChange(e)}
-                type="radio"
-                name="sortBy"
-                value="kd"
-                checked={this.props.currentButton === "kd"} />
-              <label htmlFor="matches">Matches Played</label>
-              <input
-                onChange={e => this.handleChange(e)}
-                type="radio"
-                name="sortBy"
-                value="matches"
-                checked={this.props.currentButton === "matches"} />
-          </fieldset>
-        </form>
-        <ChartComponent data={data}/>
-        {players}
+        <div className="room-content-div">
+          <div className="title-and-graph-div">
+            {title}
+            <div className="entire-doughnut-chart">
+              <form className="radio-button-form">
+                  <div>
+                    <label htmlFor="wins">Wins</label>
+                    <input
+                      onChange={e => this.handleChange(e)}
+                      type="radio"
+                      name="sortBy"
+                      value="wins"
+                      checked={this.props.currentButton === "wins"} />
+                  </div>
+                  <div>
+                    <label htmlFor="winPercentage">Win Percentage</label>
+                    <input
+                      onChange={e => this.handleChange(e)}
+                      type="radio"
+                      name="sortBy"
+                      value="winPercentage"
+                      checked={this.props.currentButton === "winPercentage"} />
+                  </div>
+                  <div>
+                    <label htmlFor="kills">Kills</label>
+                    <input
+                      onChange={e => this.handleChange(e)}
+                      type="radio"
+                      name="sortBy"
+                      value="kills"
+                      checked={this.props.currentButton === "kills"} />
+                  </div>
+                  <div>
+                    <label htmlFor="kd">K/D Ratio</label>
+                    <input
+                      onChange={e => this.handleChange(e)}
+                      type="radio"
+                      name="sortBy"
+                      value="kd"
+                      checked={this.props.currentButton === "kd"} />
+                  </div>
+                  <div>
+                    <label htmlFor="matches">Matches Played</label>
+                    <input
+                      onChange={e => this.handleChange(e)}
+                      type="radio"
+                      name="sortBy"
+                      value="matches"
+                      checked={this.props.currentButton === "matches"} />
+                  </div>
+              </form>
+              <ChartComponent data={data}/>
+            </div>
+          </div>
+          <div className="form-and-players-div">
+            <AddPlayerToRoomForm />
+            <div className="all-players-div">
+              {players}
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

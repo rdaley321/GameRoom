@@ -43,16 +43,18 @@ class AddPlayerToRoomForm extends React.Component {
 
   render () {
     return(
-    <form id="playerForm" onSubmit={e => this.handleSubmit(e)}>
-      <input type="text" name="handle" placeholder="handle..."/>
-      <input type="text" name="nickname" placeholder="nickname..."/>
-      <select name="platform" form='playerForm'>
-        <option value="psn">PSN</option>
-        <option value="xbl">XBL</option>
-        <option value="pc">PC</option>
-      </select>
-      <button type="submit">Add player</button>
-    </form>
+      <div className="form-bg room-form-div">
+        <form className="form" id="playerForm" onSubmit={e => this.handleSubmit(e)}>
+          <input type="text" name="handle" placeholder="handle..."/>
+          <input type="text" name="nickname" placeholder="nickname..."/>
+          <select name="platform" form='playerForm'>
+            <option value="psn">PSN</option>
+            <option value="xbl">XBL</option>
+            <option value="pc">PC</option>
+          </select>
+          <button type="submit">Add player</button>
+        </form>
+      </div>
     )
   }
 }

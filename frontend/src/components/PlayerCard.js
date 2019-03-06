@@ -74,23 +74,27 @@ const PlayerCard = (props) => {
   }
 
   return (
-    <div>
-      <div className="refresh-icon-div" onClick={handleRefresh}>
-        <img src={circleArrow} alt='refresh'/>
+    <div className="player-card-div">
+      <div className="player-card-buttons">
+        <div className="refresh-icon-div" onClick={handleRefresh}>
+          <img src={circleArrow} alt='refresh'/>
+        </div>
+        <div className="delete-icon-div" onClick={handleDelete}>
+          <img src={xIcon} alt='delete'/>
+        </div>
       </div>
-      <div className="delete-icon-div" onClick={handleDelete}>
-        <img src={xIcon} alt='delete'/>
-      </div>
-      <h1>{props.handle}</h1>
-      <h6>{props.nickname}</h6>
-      <h6>{props.stats.platformNameLong}</h6>
-      <div>
-        <h4>Life Time Stats</h4>
-        <p>Wins: {wins}</p>
-        <p>Win%: {winPercentage}</p>
-        <p>Kills: {kills}</p>
-        <p>K/D: {kdRatio}</p>
-        <p>Matches Played: {matchesPlayed}</p>
+      <div className="player-card-details">
+        <h1>{props.handle}</h1>
+        <h6>{props.nickname}</h6>
+        <h6>{props.stats.platformNameLong}</h6>
+        <div className="player-card-stats">
+          <h4>Life Time Stats</h4>
+          <p>Wins: {wins}</p>
+          <p>Win%: {winPercentage}</p>
+          <p>Kills: {kills}</p>
+          <p>K/D: {kdRatio}</p>
+          <p>Matches Played: {matchesPlayed}</p>
+        </div>
       </div>
       <div>
         {props.stats.recentMatches.length > 1 && <LineChartComponent data={props.stats.recentMatches}/> }

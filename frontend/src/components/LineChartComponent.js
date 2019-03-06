@@ -35,7 +35,7 @@ const LineChartComponent = (props) => {
   };
 
   return (
-    <div style={{width: '500px'}}>
+    <div style={{width: '300px', margin: '0 auto'}}>
       <Line data={data}/>
     </div>
   )
