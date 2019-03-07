@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import API_URL from '../APIURL/apiUrl'
 
 class CreateUserForm extends React.Component {
 
@@ -13,7 +14,7 @@ class CreateUserForm extends React.Component {
       lastName: e.target.lastName.value
     }
 
-    fetch('http://localhost:8080/api/user/signup', {
+    fetch(`${API_URL}/api/user/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

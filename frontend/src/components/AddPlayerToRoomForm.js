@@ -1,6 +1,7 @@
 import React from 'react'
 import apiKey from '../secret/keys'
 import { connect } from 'react-redux'
+import API_URL from '../APIURL/apiUrl'
 
 class AddPlayerToRoomForm extends React.Component {
 
@@ -10,7 +11,7 @@ class AddPlayerToRoomForm extends React.Component {
       nickname: e.target.nickname.value,
       stats: stats
     }
-    fetch('http://localhost:8080/api/players', {
+    fetch(`${API_URL}/api/players`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

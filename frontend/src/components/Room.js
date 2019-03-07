@@ -4,12 +4,13 @@ import AddPlayerToRoomForm from './AddPlayerToRoomForm'
 import PlayerCard from './PlayerCard'
 import ChartComponent from './ChartComponent'
 import randomColor from 'randomcolor'
+import API_URL from '../APIURL/apiUrl'
 
 class Room extends React.Component {
 
 
   componentDidMount() {
-    fetch(`http://localhost:8080/api/rooms/${this.props.room_id}`)
+    fetch(`${API_URL}/api/rooms/${this.props.room_id}`)
     .then(res => res.json())
     .then(res => this.props.dispatch({type:'SELECT_CURRENT_ROOM', payload: res}))
     .catch(err => console.log(err))

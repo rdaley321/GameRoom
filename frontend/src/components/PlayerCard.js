@@ -4,6 +4,7 @@ import circleArrow from '../images/loading-refresh-reload-loop-circle-arrow-3819
 import xIcon from '../images/x_icon.png'
 import apiKey from '../secret/keys'
 import { connect } from 'react-redux'
+import API_URL from '../APIURL/apiUrl'
 
 const PlayerCard = (props) => {
   let wins
@@ -34,7 +35,7 @@ const PlayerCard = (props) => {
   })
 
   function postToDatabase(stats) {
-    fetch(`http://localhost:8080/api/players/update/${props._id}`, {
+    fetch(`${API_URL}/api/players/update/${props._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -63,7 +64,7 @@ const PlayerCard = (props) => {
   }
 
   function handleDelete() {
-    fetch(`http://localhost:8080/api/players/${props._id}`, {
+    fetch(`${API_URL}/api/players/${props._id}`, {
       method: 'DELETE',
       headers: {
         'authorization': localStorage.token,

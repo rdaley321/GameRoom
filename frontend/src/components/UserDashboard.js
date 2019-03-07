@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
+import API_URL from '../APIURL/apiUrl'
 import RoomCard from './RoomCard'
 
 class UserDashboard extends React.Component {
 
   fetchRooms() {
-    fetch('http://localhost:8080/api/users/rooms', {
+    fetch(`${API_URL}/api/users/rooms`, {
       headers: {
         'Content-Type': 'application/json',
         'email': this.props.currentUser,
@@ -26,7 +26,7 @@ class UserDashboard extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    fetch('http://localhost:8080/api/rooms', {
+    fetch(`${API_URL}/api/rooms`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

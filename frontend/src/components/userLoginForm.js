@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import API_URL from '../APIURL/apiUrl'
 
 class UserLoginForm extends React.Component {
 
@@ -12,7 +13,7 @@ class UserLoginForm extends React.Component {
         password: e.target.password.value
       }
 
-      fetch('http://localhost:8080/api/user/signin', {
+      fetch(`${API_URL}/api/user/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
