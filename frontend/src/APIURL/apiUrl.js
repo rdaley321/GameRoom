@@ -1,3 +1,3 @@
-const API_URL = 'http://localhost:80'
+const API_URL = 'http://0.0.0.0'
 
 export default API_URL
